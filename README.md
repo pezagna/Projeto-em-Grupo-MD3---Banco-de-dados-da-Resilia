@@ -4,7 +4,7 @@ PROJETO EM GRUPO Módulo 3 – Banco de dados da Resilia
 
 Data de criação: 03/04/2023
 
-Criação e edição: Diego Nieto, Erick, Jorge Willian, Robson da Silva, Victor Rangel.
+Criação e edição: Diego Nieto, Erick Silva, Jorge Willian, Robson da Silva, Victor Rangel.
 
 Banco de dados utilizado: PostgreSQL
 
