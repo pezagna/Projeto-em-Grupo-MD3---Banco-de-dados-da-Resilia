@@ -51,7 +51,7 @@ CREATE TABLE turmas (
 );
 
 -- Comando para criar a tabela Facilitadores
-DROP TABLE facilitadores (
+CREATE TABLE facilitadores (
   id SERIAL PRIMARY KEY,
   nome VARCHAR(255) NOT NULL,
   cpf VARCHAR(14) NOT NULL UNIQUE,
