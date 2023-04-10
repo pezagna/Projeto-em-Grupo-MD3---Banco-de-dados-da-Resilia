@@ -33,42 +33,6 @@ CREATE TABLE departamentos (
   descricao VARCHAR(255)
 );
 
--- Criar tabela para relacionar e alocar os cargos dos funcionarios em seus departamentos.
-CREATE TABLE cargos (
-  id SERIAL PRIMARY KEY,
-  departamento_id INTEGER,
-  facilitador_id INTEGER,
-  marketing_id INTEGER,
-  financeiro_id INTEGER,
-  tecnologia_id INTEGER,
-  rh_id INTEGER,
-  FOREIGN KEY (departamento_id) REFERENCES departamentos(id),
-  FOREIGN KEY (facilitador_id) REFERENCES facilitadores(id),
-  FOREIGN KEY (marketing_id) REFERENCES administrador_marketing(id),
-  FOREIGN KEY (financeiro_id) REFERENCES administrador_financeiro(id),
-  FOREIGN KEY (tecnologia_id) REFERENCES administrador_tecnologia(id),
-  FOREIGN KEY (rh_id) REFERENCES administrador_rh(id)
-);
--- Comando para criar a tabela de relacionamento entre Alunos e Cursos
-CREATE TABLE alunos_cursos (
-  id SERIAL PRIMARY KEY,
-  aluno_id INTEGER NOT NULL,
-  curso_id INTEGER NOT NULL,
-  FOREIGN KEY (aluno_id) REFERENCES alunos(id),
-  FOREIGN KEY (curso_id) REFERENCES cursos(id)
-);
-
--- Comando para criar a tabela Turmas
-CREATE TABLE turmas (
-  id SERIAL PRIMARY KEY,
-  nome VARCHAR(100) NOT NULL,
-  horario TIME NOT NULL,
-  data_inicio DATE NOT NULL,
-  data_fim DATE NOT NULL,
-  curso_id INTEGER NOT NULL,
-  FOREIGN KEY (curso_id) REFERENCES cursos(id)
-);
-
 -- Comando para criar a tabela Facilitadores
 CREATE TABLE facilitadores (
   id SERIAL PRIMARY KEY,
@@ -124,6 +88,42 @@ CREATE TABLE Administrador_financeiro (
   salario INTEGER
 );
 
+-- Criar tabela para relacionar e alocar os cargos dos funcionarios em seus departamentos.
+CREATE TABLE cargos (
+  id SERIAL PRIMARY KEY,
+  departamento_id INTEGER,
+  facilitador_id INTEGER,
+  marketing_id INTEGER,
+  financeiro_id INTEGER,
+  tecnologia_id INTEGER,
+  rh_id INTEGER,
+  FOREIGN KEY (departamento_id) REFERENCES departamentos(id),
+  FOREIGN KEY (facilitador_id) REFERENCES facilitadores(id),
+  FOREIGN KEY (marketing_id) REFERENCES administrador_marketing(id),
+  FOREIGN KEY (financeiro_id) REFERENCES administrador_financeiro(id),
+  FOREIGN KEY (tecnologia_id) REFERENCES administrador_tecnologia(id),
+  FOREIGN KEY (rh_id) REFERENCES administrador_rh(id)
+);
+-- Comando para criar a tabela de relacionamento entre Alunos e Cursos
+CREATE TABLE alunos_cursos (
+  id SERIAL PRIMARY KEY,
+  aluno_id INTEGER NOT NULL,
+  curso_id INTEGER NOT NULL,
+  FOREIGN KEY (aluno_id) REFERENCES alunos(id),
+  FOREIGN KEY (curso_id) REFERENCES cursos(id)
+);
+
+-- Comando para criar a tabela Turmas
+CREATE TABLE turmas (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  horario TIME NOT NULL,
+  data_inicio DATE NOT NULL,
+  data_fim DATE NOT NULL,
+  curso_id INTEGER NOT NULL,
+  FOREIGN KEY (curso_id) REFERENCES cursos(id)
+);
+
 -- Comando para criar a tabela de relacionamento entre Turmas e Facilitadores
 CREATE TABLE turmas_facilitadores (
   id SERIAL PRIMARY KEY,
@@ -132,7 +132,6 @@ CREATE TABLE turmas_facilitadores (
   FOREIGN KEY (turma_id) REFERENCES turmas(id),
   FOREIGN KEY (facilitador_id) REFERENCES facilitadores(id)
 );
-
 
 -- Comando para criar a tabela de relacionamento entre Cursos e Módulos
 CREATE TABLE cursos_modulos (
@@ -203,31 +202,7 @@ INSERT INTO modulos (id,nome, descricao) VALUES
 	(19, 'Módulo 4: Desenvolvimento Full Stack', 'Este módulo abrange o desenvolvimento de sistemas completos, integrando o front-end e o back-end.'),
 	(20, 'Módulo 5: Desenvolvimento de aplicações móveis', 'Este módulo abrange o desenvolvimento de aplicativos móveis para Android e iOS, utilizando tecnologias como Java e Kotlin para Android e Swift para iOS.')
 	;
-  
--- Inserir dados na tabela de relacionamento cursos_modulos
-INSERT INTO cursos_modulos (curso_id, modulo_id)
-VALUES 
-	(1, 1),
-	(1, 2),
-	(1, 3),
-	(1, 4),
-	(1, 5),
-	(2, 6),
-	(2, 7),
-	(2, 8),
-	(2, 9),
-	(2, 10),
-	(3, 11),
-	(3, 12),
-	(3, 13),
-	(3, 14),
-	(3, 15),
-	(4, 16),
-	(4, 17),
-	(4, 18),
-	(4, 19),
-	(4, 20);
-	
+  	
 -- Inserir dados na tabela de relacionamento alunos_cursos
 INSERT INTO alunos_cursos (aluno_id, curso_id) VALUES
 	(1, 1),
@@ -253,6 +228,30 @@ INSERT INTO alunos_cursos (aluno_id, curso_id) VALUES
 	(18, 2),
 	(19, 3),
 	(20, 1);
+
+-- Inserir dados na tabela de relacionamento cursos_modulos
+INSERT INTO cursos_modulos (curso_id, modulo_id)
+VALUES 
+	(1, 1),
+	(1, 2),
+	(1, 3),
+	(1, 4),
+	(1, 5),
+	(2, 6),
+	(2, 7),
+	(2, 8),
+	(2, 9),
+	(2, 10),
+	(3, 11),
+	(3, 12),
+	(3, 13),
+	(3, 14),
+	(3, 15),
+	(4, 16),
+	(4, 17),
+	(4, 18),
+	(4, 19),
+	(4, 20);
 
 -- Inserir dados na tabela turma
 INSERT INTO turmas (nome,horario, data_inicio, data_fim, curso_id) VALUES
@@ -297,6 +296,8 @@ VALUES
 -- Inserir dados na tabela administrador_financeiro
 INSERT INTO administrador_financeiro (nome, cpf, email, telefone, endereco,salario) VALUES
 	('Lucas Oliveira', '555.666.777-88', 'lucas.oliveira@financeiro.resilia.com','(21) 93216-5566', 'Rua do Amanhã 76, Bairro Doutor Flores - Rio de Janeiro - RJ','5000');
+
+-- Inserir dados do Financeiro na tabela Cargos
 INSERT INTO cargos (departamento_id, financeiro_id)
 VALUES
 	(3, 1);
@@ -305,6 +306,7 @@ VALUES
 INSERT INTO administrador_rh (nome, cpf, email, endereco,salario, telefone) VALUES
 	('Anderson da SIlva', '775.666.727-98', 'anderson.silva@rh.resilia.com', 'Rua do futuro 77, Bairro Doutora Flores - Rio de Janeiro - RJ',3500, '(21) 91116-5576');
 
+-- Inserir dados do RH na tabela Cargos
 INSERT INTO cargos (departamento_id, rh_id)
 VALUES
 	(1, 1);
@@ -313,6 +315,7 @@ VALUES
 INSERT INTO administrador_marketing (nome, cpf, email, endereco,salario, telefone) VALUES
 	('Paula Gomes', '325.666.427-78', 'paula.gomes@marketing.resilia.com', 'Rua do passado 74, Bairro Engenheiro Flores - Rio de Janeiro - RJ',3000, '(21) 93823-5506');
 
+-- Inserir dados do Marleting na tabela Cargos
 INSERT INTO cargos (departamento_id, marketing_id)
 VALUES
 	(2, 1);
@@ -321,6 +324,7 @@ VALUES
 INSERT INTO administrador_tecnologia (nome, cpf, email, endereco,salario, telefone) VALUES
 	('Roberto Silveira', '105.096.747-38', 'roberto.silveira@tecnologia.resilia.com', 'Rua do presente 75, Centro - Rio de Janeiro - RJ',4500, '(21) 99996-5599');
 
+-- Inserir dados na tabela Cargos
 INSERT INTO cargos (departamento_id, tecnologia_id)
 VALUES
 	(4, 1);	
@@ -370,5 +374,4 @@ JOIN modulos ON cursos_modulos.modulo_id = modulos.id;
 SELECT nome, duracao
 FROM cursos
 WHERE duracao = (SELECT MAX(duracao) FROM cursos);
-
 
