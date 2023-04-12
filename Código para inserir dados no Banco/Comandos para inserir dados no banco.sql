@@ -1,4 +1,4 @@
-
+	
 -- Inserir dados na tabela alunos
 INSERT INTO alunos (id,nome, email, telefone, data_nascimento, cpf, cep, endereco) VALUES
     (1,'Luiz Felipe', 'luiz.felipe@aluno.resilia.com', '(21) 98888-5555', '2002-02-22', '777.456.789-00', '20511-290', 'Rua General Glicério, 364 - Laranjeiras, Rio de Janeiro - RJ'),
@@ -19,15 +19,25 @@ INSERT INTO alunos (id,nome, email, telefone, data_nascimento, cpf, cep, enderec
 	(16,'Renata Oliveira', 'renata.oliveira@aluno.resilia.com', '(21) 98877-6655', '2001-03-15', '678.901.234-56', '20231-004', 'Rua Buenos Aires, 70, Rio de Janeiro - RJ'),
 	(17,'Rafaela Pereira', 'rafaela.pereira@aluno.resilia.com', '(21) 98877-6655', '2001-03-15', '789.012.345-67', '20230-012', 'Rua Sete de Setembro, 80, Rio de Janeiro - RJ'),
 	(18,'Marcelo Souza', 'marcelo.souza@aluno.resilia.com', '(21) 98877-6655', '2001-03-15', '890.123.456-78', '20231-015', 'Rua dos Andradas, 90, Rio de Janeiro - RJ'),
-	(19,'Roberto Ferreira', 'roberto.ferreira@aluno.resilia.com', '(21) 98555-6622', '2000-03-15', '901.124.567-85', '20923-092', 'Rua dos Inválidos, 30, Rio de Janeiro - RJ'),
-	(20,'Larissa Ferreira', 'larissa.ferreira@aluno.resilia.com', '(21) 98877-6655', '2001-03-15', '901.234.567-89', '20231-092', 'Rua dos Inválidos, 100, Rio de Janeiro - RJ');
+	(19,'Roberto Ferreira', 'roberto.ferreira@aluno.resilia.com', '(21) 98555-6622', '2000-03-15', '901.124.887-85', '20923-092', 'Rua dos Silveiras, 30, Rio de Janeiro - RJ'),
+	(20,'Rafael Santos', 'rafael.santos@aluno.resilia.com', '(21) 91234-6622', '2001-04-25', '101.124.457-95', '20900-442', 'Rua dos Oliveiras, 40, Rio de Janeiro - RJ'),
+	(21,'Roberta Santos', 'roberta.santos@aluno.resilia.com', '(21) 99995-7772', '2003-09-23', '901.124.567-87', '20764-102', 'Rua das Palmeiras, 50, Rio de Janeiro - RJ'),
+	(22,'Carlos Sampaio', 'carlos.sampaio@aluno.resilia.com', '(21) 98333-7722', '2001-01-13', '901.324.567-05', '23213-052', 'Rua dos Bandeirantes, 60, Rio de Janeiro - RJ'),
+	(23,'Larissa Ferreira', 'larissa.ferreira@aluno.resilia.com', '(21) 98877-6655', '2001-02-20', '123.234.567-89', '21231-012', 'Rua dos Trabalhadores, 100, Rio de Janeiro - RJ');
+
+-- Inserir dados na tabela turma
+INSERT INTO turmas (id,nome,horario, data_inicio, data_fim) VALUES
+	(1,'Turma de WebDev Full Stack JavaScript','08:00:00', '2023-01-10', '2023-06-20'),
+	(2,'Turma de Data Analytics','12:00:00', '2023-02-15', '2023-08-01'),
+	(3,'Turma de Análise de Sistemas','16:00:00', '2023-03-20', '2023-09-30'),
+	(4,'Turma de WebDev Full Stack Java','20:00:00', '2023-04-25', '2023-11-10');
 	
 -- Inserir dados na tabela cursos
-INSERT INTO cursos (nome, duracao, valor) VALUES
-	('Formação WebDev Full Stack JavaScript', 240, 8000),
-	('Formação em Data Analytics', 480, 12000),
-	('Formação Análise de Sistemas', 480, 15000),
-	('Formação WebDev Full Stack Java', 240, 6000);
+INSERT INTO cursos (id,nome, duracao, valor,turma_id) VALUES
+	(1,'Formação WebDev Full Stack JavaScript', 240, 8000,1),
+	(2,'Formação em Data Analytics', 480, 12000,2),
+	(3,'Formação Análise de Sistemas', 480, 15000,3),
+	(4,'Formação WebDev Full Stack Java', 240, 6000,4);
 
 -- Inserir dados na tabela modulos
 INSERT INTO modulos (id,nome, descricao) VALUES 
@@ -60,32 +70,6 @@ INSERT INTO modulos (id,nome, descricao) VALUES
 	(20, 'Módulo 5: Desenvolvimento de aplicações móveis', 'Este módulo abrange o desenvolvimento de aplicativos móveis para Android e iOS, utilizando tecnologias como Java e Kotlin para Android e Swift para iOS.')
 	;
   	
--- Inserir dados na tabela de relacionamento alunos_cursos
-INSERT INTO alunos_cursos (aluno_id, curso_id) VALUES
-	(1, 1),
-	(1, 2),
-	(2, 4),
-	(3, 2),
-	(4, 1),
-	(4, 2),
-	(4, 3),
-	(5, 1),
-	(6, 2),
-	(7, 3),
-	(8, 4),
-	(9, 2),
-	(10, 3),
-	(11, 1),
-	(12, 2),
-	(13, 3),
-	(14, 1),
-	(15, 4),
-	(16, 3),
-	(17, 4),
-	(18, 2),
-	(19, 3),
-	(20, 1);
-
 -- Inserir dados na tabela de relacionamento cursos_modulos
 INSERT INTO cursos_modulos (curso_id, modulo_id)
 VALUES 
@@ -110,78 +94,66 @@ VALUES
 	(4, 19),
 	(4, 20);
 
--- Inserir dados na tabela turma
-INSERT INTO turmas (nome,horario, data_inicio, data_fim, curso_id) VALUES
-	('Turma de WebDev Full Stack JavaScript','08:00:00', '2023-01-10', '2023-06-20', 1),
-	('Turma de Data Analytics','12:00:00', '2023-02-15', '2023-08-01', 2),
-	('Turma de Análise de Sistemas','16:00:00', '2023-03-20', '2023-09-30', 3),
-	('Turma de WebDev Full Stack Java','20:00:00', '2023-04-25', '2023-11-10', 4);
-
--- Inserir dados na tabela facilitadores
-INSERT INTO facilitadores (nome, cpf, email, endereco, salario, telefone) VALUES
-  ('Carlos Oliveira', '654.321.987-10', 'carlos.oliveira@facilitador.resilia.com', 'Rua 1 de Maio 100, Centro, Rio de Janeiro - RJ',5000, '(11) 91234-5678'),
-  ('Ana Santos', '987.654.234-20', 'ana.santos@facilitador.resilia.com', 'Rua 5 de Maio 50, Centro, Rio de Janeiro - RJ',4000, '(21) 98765-4321'),
-  ('Rodrigo Costa', '321.777.987-30', 'rodrigo.costa@facilitador.resilia.com', 'Rua 1 de Abril 40 , Centro, Rio de Janeiro - RJ',4000, '(31) 99806-5002'),
-  ('Paulo Souza', '321.444.987-31', 'paulo.souza@facilitador.senac.com', 'Rua do Meio 35, Bairro Central, Rio de Janeiro - RJ',3500, '(31) 99876-5432'),
-  ('Larissa Silva', '890.123.456-40', 'larissa.silva@facilitador.resilia.com', 'Rua 15 de Novembro 30, Centro, Rio de Janeiro - RJ',3500, '(41) 97834-3478');
-
--- Inserir dados na tabela de relacionamento turmas_facilitadores
-INSERT INTO turmas_facilitadores (turma_id, facilitador_id)VALUES 
-	(1, 1), 
-	(2, 1),
-	(3, 2),
-	(4, 3),
-	(3, 5);
 	
+-- Inserir dados na tabela de relacionamento alunos_cursos_turmas
+INSERT INTO alunos_cursos_turmas (aluno_id, curso_id, turma_id) VALUES
+	(1, 1, 1),
+	(1, 2, 2),
+	(2, 2, 2),
+	(3, 2, 2),
+	(5, 2, 2),
+	(6, 2, 2),
+	(7, 2, 2),
+	(8, 2, 2),
+	(9, 2, 2),
+	(10, 2, 2),
+	(11, 2, 2),
+	(12, 2, 2),
+	(13, 3, 3),
+	(14, 1, 1),
+	(15, 2, 2),
+	(16, 3, 3),
+	(17, 1, 1),
+	(18, 4, 4),
+	(19, 3, 3),
+	(20, 4, 4),
+	(21, 4, 4),
+	(22, 3, 3),
+	(23, 1, 1);
 -- Inserir dados na tabela departamentos
 INSERT INTO departamentos (nome, descricao) VALUES
-	('Recursos Humanos', 'Responsável pela gestão de pessoas na empresa.'),
-	('Marketing', 'Responsável pela criação e promoção da marca e produtos da empresa.'),
-	('Financeiro', 'Responsável pela gestão financeira e contábil da empresa.'),
-	('Tecnologia', 'Responsável pelo desenvolvimento e manutenção dos sistemas e tecnologias da empresa.'),
-	('Pedagógico', 'Responsável pela melhoria do ensino e aprendizagem, contribuindo com a formação geral e profissional dos envolvidos.');
-
+	('Recursos Humanos', 'Departamento relacionado a gestão de pessoas na empresa.'),
+	('Marketing', 'Departamento relacionado a criação e promoção da marca e produtos da empresa.'),
+	('Financeiro', 'Departamento relacionado a gestão financeira e contábil da empresa.'),
+	('Tecnologia', 'Departamento relacionado a desenvolvimento e manutenção dos sistemas e tecnologias da empresa.'),
+	('Pedagógico', 'Departamento relacionado a melhoria do ensino e aprendizagem, contribuindo com a formação geral e profissional dos envolvidos.');
+	
 -- Inserir dados dos facilitadores na tabela cargos
-INSERT INTO cargos (departamento_id, facilitador_id)
+INSERT INTO cargos (id,nome, descricao, departamento_id)
 VALUES
-	(5, 1),
-	(5, 2),
-	(5, 3),
-	(5, 4),
-	(5, 5);
+	(1,'Analista de Recursos Humanos', 'Responsável pelo recrutamento e seleção, treinamento e desenvolvimento de funcionários e gerenciamento de benefícios.',1),
+	(2,'Analista de Marketing', 'Responsável pela pesquisa de mercado, desenvolvimento de estratégias de marketing, gestão de campanhas publicitárias e de mídia social.',2),
+	(3,'Analista Financeiro', 'Responsável pelo gerenciamento financeiro, análise de dados financeiros, criação de relatórios financeiros e estratégias de investimento.',3),
+	(4,'Analista de Tecnologia', 'Responsável por gerenciamento de sistemas de tecnologia, manutenção de redes, desenvolvimento de aplicativos e suporte técnico.',4),
+	(5,'Facilitador', 'Lecionar os alunos com o material do curso, criar espaços para a construção coletiva de ideias, engajar as pessoas e promover debates construtivos, extraindo informações, conhecimento e potencial dos alunos.',5);
 
--- Inserir dados na tabela administrador_financeiro
-INSERT INTO administrador_financeiro (nome, cpf, email, telefone, endereco,salario) VALUES
-	('Lucas Oliveira', '555.666.777-88', 'lucas.oliveira@financeiro.resilia.com','(21) 93216-5566', 'Rua do Amanhã 76, Bairro Doutor Flores - Rio de Janeiro - RJ','5000');
+-- Inserir dados na tabela funcionarios
+INSERT INTO funcionarios (id,nome, cpf, email, endereco, cep, salario, telefone, data_nascimento,cargo_id) VALUES
+	(1,'Carlos Oliveira', '654.321.987-10', 'carlos.oliveira@facilitador.resilia.com', 'Rua 1 de Maio 100, Centro, Rio de Janeiro - RJ', '20020-200', 5000, '(11) 91234-5678', '1990-05-15',5),
+	(2,'Ana Santos', '987.654.234-20', 'ana.santos@facilitador.resilia.com', 'Rua 5 de Maio 50, Centro, Rio de Janeiro - RJ', '20010-101', 4000, '(21) 98765-4321', '1995-01-20',5),
+	(3,'Rodrigo Costa', '321.777.987-30', 'rodrigo.costa@facilitador.resilia.com', 'Rua 1 de Abril 40 , Centro, Rio de Janeiro - RJ', '20010-002', 4000, '(31) 99806-5002', '1988-11-10',5),
+	(4,'Paulo Souza', '321.444.987-31', 'paulo.souza@facilitador.senac.com', 'Rua do Meio 35, Bairro Central, Rio de Janeiro - RJ', '20020-100', 3500, '(31) 99876-5432', '1993-03-01',5),
+	(5,'Larissa Silva', '890.123.456-40', 'larissa.silva@facilitador.resilia.com', 'Rua 15 de Novembro 30, Centro, Rio de Janeiro - RJ', '20010-003', 3500, '(41) 97834-3478', '1992-07-07',5),
+	(6,'Mariana Alexandre Alves', '123.776.709-09', 'mariana.alves@.resilia.com', 'Rua das Flores 100, Jardim Botânico, São Paulo - SP', '01234-567', 4500, '(11) 91234-5678', '1992-12-05',1),
+	(7,'Lucas Santos Silva', '124.567.890-01', 'lucas.santos@.resilia.com', 'Avenida Paulista 1000, Bela Vista, São Paulo - SP', '01234-567', 5000, '(11) 98765-4321', '1985-08-10',2),
+	(8,'Carla Gomes Oliveira', '215.678.901-02', 'carla.oliveira@.resilia.com', 'Rua das Margaridas 200, Jardim Europa, São Paulo - SP', '01234-567', 4000, '(11) 99806-5002', '1990-04-20,',3),
+	(9,'Thiago da Silva', '516.789.012-03', 'thiago.silva@.resilia.com', 'Rua dos Pinheiros 300, Pinheiros, São Paulo - SP', '01234-567', 3500, '(11) 99876-5432', '1993-01-15',4);  
 
--- Inserir dados do Financeiro na tabela Cargos
-INSERT INTO cargos (departamento_id, financeiro_id)
-VALUES
-	(3, 1);
-
--- Inserir dados na tabela administrador_rh
-INSERT INTO administrador_rh (nome, cpf, email, endereco,salario, telefone) VALUES
-	('Anderson da SIlva', '775.666.727-98', 'anderson.silva@rh.resilia.com', 'Rua do futuro 77, Bairro Doutora Flores - Rio de Janeiro - RJ',3500, '(21) 91116-5576');
-
--- Inserir dados do RH na tabela Cargos
-INSERT INTO cargos (departamento_id, rh_id)
-VALUES
-	(1, 1);
-	
--- Inserir dados na tabela administrador_marketing
-INSERT INTO administrador_marketing (nome, cpf, email, endereco,salario, telefone) VALUES
-	('Paula Gomes', '325.666.427-78', 'paula.gomes@marketing.resilia.com', 'Rua do passado 74, Bairro Engenheiro Flores - Rio de Janeiro - RJ',3000, '(21) 93823-5506');
-
--- Inserir dados do Marleting na tabela Cargos
-INSERT INTO cargos (departamento_id, marketing_id)
-VALUES
-	(2, 1);
-	
--- Inserir dados na tabela administrador_tecnologia
-INSERT INTO administrador_tecnologia (nome, cpf, email, endereco,salario, telefone) VALUES
-	('Roberto Silveira', '105.096.747-38', 'roberto.silveira@tecnologia.resilia.com', 'Rua do presente 75, Centro - Rio de Janeiro - RJ',4500, '(21) 99996-5599');
-
--- Inserir dados na tabela Cargos
-INSERT INTO cargos (departamento_id, tecnologia_id)
-VALUES
-	(4, 1);	
+-- Inserir dados na tabela de relacionamento turmas_facilitadores
+INSERT INTO facilitadores_facilitam (curso_id, modulo_id, turma_id,funcionario_id)VALUES 
+	(1,1,1,1),
+	(2,2,2,1),
+	(3,3,3,2),
+	(4,4,4,3),
+	(4,1,4,4),
+	(1,1,1,5);
