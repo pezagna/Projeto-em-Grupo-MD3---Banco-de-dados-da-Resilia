@@ -197,7 +197,6 @@ VALUES
 	(4, 19),
 	(4, 20);
 
-	
 -- Inserir dados na tabela de relacionamento alunos_cursos_turmas
 INSERT INTO alunos_cursos_turmas (aluno_id, curso_id, turma_id) VALUES
 	(1, 1, 1),
@@ -223,6 +222,7 @@ INSERT INTO alunos_cursos_turmas (aluno_id, curso_id, turma_id) VALUES
 	(21, 4, 4),
 	(22, 3, 3),
 	(23, 1, 1);
+	
 -- Inserir dados na tabela departamentos
 INSERT INTO departamentos (nome, descricao) VALUES
 	('Recursos Humanos', 'Departamento relacionado a gestão de pessoas na empresa.'),
@@ -242,15 +242,15 @@ VALUES
 
 -- Inserir dados na tabela funcionarios
 INSERT INTO funcionarios (id,nome, cpf, email, endereco, cep, salario, telefone, data_nascimento,cargo_id) VALUES
-	(1,'Carlos Oliveira', '654.321.987-10', 'carlos.oliveira@facilitador.resilia.com', 'Rua 1 de Maio 100, Centro, Rio de Janeiro - RJ', '20020-200', 5000, '(11) 91234-5678', '1990-05-15',5),
+	(1,'Carlos Oliveira', '654.321.987-10', 'carlos.oliveira@facilitador.resilia.com', 'Rua 1 de Maio 100, Centro, Rio de Janeiro - RJ', '20020-200', 5000, '(21) 91234-5678', '1990-05-15',5),
 	(2,'Ana Santos', '987.654.234-20', 'ana.santos@facilitador.resilia.com', 'Rua 5 de Maio 50, Centro, Rio de Janeiro - RJ', '20010-101', 4000, '(21) 98765-4321', '1995-01-20',5),
-	(3,'Rodrigo Costa', '321.777.987-30', 'rodrigo.costa@facilitador.resilia.com', 'Rua 1 de Abril 40 , Centro, Rio de Janeiro - RJ', '20010-002', 4000, '(31) 99806-5002', '1988-11-10',5),
-	(4,'Paulo Souza', '321.444.987-31', 'paulo.souza@facilitador.senac.com', 'Rua do Meio 35, Bairro Central, Rio de Janeiro - RJ', '20020-100', 3500, '(31) 99876-5432', '1993-03-01',5),
-	(5,'Larissa Silva', '890.123.456-40', 'larissa.silva@facilitador.resilia.com', 'Rua 15 de Novembro 30, Centro, Rio de Janeiro - RJ', '20010-003', 3500, '(41) 97834-3478', '1992-07-07',5),
-	(6,'Mariana Alexandre Alves', '123.776.709-09', 'mariana.alves@.resilia.com', 'Rua das Flores 100, Jardim Botânico, São Paulo - SP', '01234-567', 4500, '(11) 91234-5678', '1992-12-05',1),
-	(7,'Lucas Santos Silva', '124.567.890-01', 'lucas.santos@.resilia.com', 'Avenida Paulista 1000, Bela Vista, São Paulo - SP', '01234-567', 5000, '(11) 98765-4321', '1985-08-10',2),
-	(8,'Carla Gomes Oliveira', '215.678.901-02', 'carla.oliveira@.resilia.com', 'Rua das Margaridas 200, Jardim Europa, São Paulo - SP', '01234-567', 4000, '(11) 99806-5002', '1990-04-20,',3),
-	(9,'Thiago da Silva', '516.789.012-03', 'thiago.silva@.resilia.com', 'Rua dos Pinheiros 300, Pinheiros, São Paulo - SP', '01234-567', 3500, '(11) 99876-5432', '1993-01-15',4);  
+	(3,'Rodrigo Costa', '321.777.987-30', 'rodrigo.costa@facilitador.resilia.com', 'Rua 1 de Abril 40 , Centro, Rio de Janeiro - RJ', '20010-002', 4000, '(21) 99806-5002', '1988-11-10',5),
+	(4,'Paulo Souza', '321.444.987-31', 'paulo.souza@facilitador.senac.com', 'Rua do Meio 35, Bairro Central, Rio de Janeiro - RJ', '20020-100', 3500, '(21) 99876-5432', '1993-03-01',5),
+	(5,'Larissa Silva', '890.123.456-40', 'larissa.silva@facilitador.resilia.com', 'Rua 15 de Novembro 30, Centro, Rio de Janeiro - RJ', '20010-003', 3500, '(21) 97834-3478', '1992-07-07',5),
+	(6,'Mariana Alexandre Alves', '123.776.709-09', 'mariana.alves@.resilia.com', 'Rua das Flores 100, Jardim Botânico, São Paulo - SP', '01234-567', 4500, '(21) 91234-5678', '1992-12-05',1),
+	(7,'Lucas Santos Silva', '124.567.890-01', 'lucas.santos@.resilia.com', 'Avenida Paulista 1000, Bela Vista, São Paulo - SP', '01234-567', 5000, '(21) 98765-4321', '1985-08-10',2),
+	(8,'Carla Gomes Oliveira', '215.678.901-02', 'carla.oliveira@.resilia.com', 'Rua das Margaridas 200, Jardim Europa, São Paulo - SP', '01234-567', 4000, '(21) 99806-5002', '1990-04-20,',3),
+	(9,'Thiago da Silva', '516.789.012-03', 'thiago.silva@.resilia.com', 'Rua dos Pinheiros 300, Pinheiros, São Paulo - SP', '01234-567', 3500, '(21) 99876-5432', '1993-01-15',4);  
 
 -- Inserir dados na tabela de relacionamento turmas_facilitadores
 INSERT INTO facilitadores_facilitam (curso_id, modulo_id, turma_id,funcionario_id)VALUES 
