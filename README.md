@@ -6,7 +6,9 @@ Data de criação: 03/04/2023
 
 Data de Finalização: 11/04/2023
 
-Banco de dados utilizado: PostgreSQL
+Softwares e aplicações utilizadas:
+
+PostgreSQL, BrModelo v3.31, Paint, Canva.
 
 ----------------------------------------------------------------------------------------
 
